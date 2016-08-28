@@ -77,7 +77,7 @@
 	</section>
 	<section class="slide">
 		<h2>HTTP Method</h2>
-		<p>Последовательность из любых символов, указывающая на основную операцию над ресурсом</p>
+		<p>Последовательность из любых символов, указывающая на основную операцию над ресурсом <code>req.method</code></p>
 		<ul>
 			<li>GET</li>
 			<li>POST</li>
@@ -97,6 +97,17 @@
 			<li>Первая цифра указывает на класс состояния</li>
 		</ul>
 	</section>
+	<section class="slide">
+		<h2>Request/Response</h2>
+		<p>
+			Express.js содержит 2 объекта <code>req</code> и <code>res</code>
+			Которые передаются в любой роут
+		</p>
+		<ul>
+			<li><code>req</code> - Request (данные запроса)</li>
+			<li><code>res</code> - Response (данные ответа)</li>
+		</ul>
+	</section>
 	<section class="slide chapter" id="express">
 		<h2>Роутинг в Express.js</h2>
 	</section>
@@ -104,16 +115,39 @@
 		<h2>Базовый пример</h2>
 		<pre>
 		<code class="language-javascript">
-			var express = require('express');
-			var app = express();
-			app.get('/', function (req, res) {
-			  res.send('Hello World!');
-			});
-			app.listen(3000, function () {
-			  console.log('Example app listening on port 3000!');
-			});
+	var express = require('express');
+	var app = express();
+	app.get('/', function (req, res) {
+	  res.send('Hello World!');
+	});
+	app.listen(3000, function () {
+	  console.log('Example app listening on port 3000!');
+	});
 		</code>
 	</pre>
+	</section>
+	<section class="slide">
+		<h2>Роут в Express</h2>
+		<p>Роут состоит из 3 частей</p>
+		<ul>
+			<li>Address - URI аддрес на который роут сработает</li>
+			<li>Middleware - Опциональная функция, которая будет вызвана до "контроллера"</li>
+			<li>Controller - Функция которая будет вызвана на данный URI</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<pre>
+			<code class="language-javascript">
+	const address = '/hello'
+	const middleware = function (req, res, next) {
+		/* ... */
+		// next(new Error('Error !'))
+		next() // <-- обязательно вызвать !
+	}
+	const controller = function (req, res) { /* ... */ }
+	app.get(address, middleware, controller)
+			</code>
+		</pre>
 	</section>
 	<section class="slide chapter" id="create-route">
 		<h2>Создание роутов</h2>
@@ -161,7 +195,7 @@
 			<code class="language-javascript">
 	app.get('/hello/:name', function (req, res) { /* ... */})
 	app.all('/hello/:name', function (req, res) {
-		console.log(req.params.name)
+		console.log(req.<mark>params.name</mark>)
 	})
 			</code>
 		</pre>
@@ -173,8 +207,81 @@
 			<code class="language-javascript">
 	app.get(/*.fly$/, function (req, res) { /* ... */})
 	app.all(/*.fly$/, function (req, res) {
-		console.log(req.params.name)
+		console.log(req.<mark>params</mark>.name)
 	})
+			</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>GET параметры</h2>
+		<p>http://localhost:3000/hello?name=Konstantin</p>
+		<p><code>req.query</code></p>
+		<pre>
+			<code class="language-javascript">
+	app.get('/hello', function (req, res) {
+		console.log(req.<mark>query</mark>.name)
+	})
+			</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>POST параметры</h2>
+		<p>POST http://localhost:3000/hello</p>
+		<p>
+			<code>
+		{ "name": "Konstantin" }
+			</code>
+		</p>
+		<pre>
+			<code class="language-javascript">
+	app.get('/hello', function (req, res) {
+		console.log(req.<mark>body</mark>.name)
+	})
+			</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Response</h2>
+		<p>
+			Express.js предоставляет богатый API для ответов сервера.
+			Данный API будет содержаться в переменной <code>res</code> переданной в контроллер
+		</p>
+	</section>
+	<section class="slide">
+		<h2>Ответ сервера</h2>
+		<p>Основной ответ сервера в Express.js это <code>res.send('Some')</code></p>
+		<pre>
+			<code class="language-javascript">
+	app.get('/hello', function (req, res) {
+		/* ... */
+		res.send('Hello !')
+	})
+			</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>Установка статус кода (HTTP Status Code)</h2>
+		<pre>
+			<code class="language-javascript">
+	// equivalent to res.status(200).send('OK')
+	res.sendStatus(200);
+	// equivalent to res.status(403).send('Forbidden')
+	res.sendStatus(403);
+	res.sendStatus(404);
+	res.sendStatus(500);
+			</code>
+		</pre>
+	</section>
+	<section class="slide">
+		<h2>JSON/JSONP</h2>
+		<pre>
+			<code class="language-javascript">
+	res.json(null);
+	res.json({ user: 'tobi' });
+	res.jsonp(null); // => null
+	res.jsonp({ user: 'tobi' }); // => { "user": "tobi" }
+	res.status(500).jsonp({ error: 'message' });
+	// => { "error": "message" }
 			</code>
 		</pre>
 	</section>
