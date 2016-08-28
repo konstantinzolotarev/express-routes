@@ -1,0 +1,127 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/kos/.nvm/versions/node/v6.3.1/bin/node',
+1 verbose cli   '/Users/kos/.nvm/versions/node/v6.3.1/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Volumes/Repos/Coding/lectures/express-routes',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/kos/.npm/shower/2.1.4/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/kos/.npm correctMkdir not in flight; initializing
+10 info lifecycle shower@2.1.4~prepublish: shower@2.1.4
+11 silly lifecycle shower@2.1.4~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/kos/.npm/shower/2.1.4/package.tgz',
+12 verbose tar pack   '/Volumes/Repos/Coding/lectures/express-routes' ]
+13 verbose tarball /Users/kos/.npm/shower/2.1.4/package.tgz
+14 verbose folder /Volumes/Repos/Coding/lectures/express-routes
+15 verbose addLocalTarball adding from inside cache /Users/kos/.npm/shower/2.1.4/package.tgz
+16 verbose correctMkdir /Users/kos/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd shower@2.1.4
+18 verbose afterAdd /Users/kos/.npm/shower/2.1.4/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/kos/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/kos/.npm/shower/2.1.4/package/package.json written
+21 silly publish { name: 'shower',
+21 silly publish   description: 'Shower HTML presentation engine',
+21 silly publish   version: '2.1.4',
+21 silly publish   author: { name: 'Vadim Makeev', url: 'http://pepelsbey.net/' },
+21 silly publish   homepage: 'https://github.com/shower/shower',
+21 silly publish   repository: { type: 'git', url: 'git://github.com/shower/shower.git' },
+21 silly publish   bugs: { url: 'http://github.com/shower/shower/issues' },
+21 silly publish   license: 'MIT',
+21 silly publish   keywords: [ 'shower', 'presentation', 'template' ],
+21 silly publish   files: [ 'pictures/**', 'index.html', 'LICENSE.md', 'README.md' ],
+21 silly publish   dependencies:
+21 silly publish    { 'shower-core': '^2.0.7',
+21 silly publish      'shower-material': '^1.0.6',
+21 silly publish      'shower-ribbon': '^2.0.7' },
+21 silly publish   devDependencies:
+21 silly publish    { del: '^2.2.1',
+21 silly publish      fs: '0.0.2',
+21 silly publish      gulp: '^3.9.1',
+21 silly publish      'gulp-gh-pages': '^0.5.4',
+21 silly publish      'gulp-rename': '^1.2.2',
+21 silly publish      'gulp-replace': '^0.5.4',
+21 silly publish      'gulp-rsync': '0.0.6',
+21 silly publish      'gulp-zip': '^3.2.0',
+21 silly publish      'merge-stream': '^1.0.0',
+21 silly publish      'path-exists-cli': '^1.0.0',
+21 silly publish      'run-sequence': '^1.2.2' },
+21 silly publish   scripts:
+21 silly publish    { prepare: 'gulp prepare',
+21 silly publish      archive: 'gulp archive',
+21 silly publish      publish: 'gulp publish',
+21 silly publish      test: 'npm run prepare && ls prepared && npm run archive && path-exists archive.zip' },
+21 silly publish   readme: '# Shower Presentation Template [![Build Status](https://travis-ci.org/shower/shower.svg?branch=master)](https://travis-ci.org/shower/shower)\n\n<img src="pictures/logo.png" width="250" alt="Shower logo">\n\n> Shower [\'ʃəuə] noun. A person or thing that shows.\n\n1. Built on HTML, CSS and vanilla JavaScript\n2. Works in all modern browsers\n3. Themes are separated from engine\n4. Modular and extensible\n5. Fully keyboard accessible\n6. Printable to PDF\n\n[See it in action](http://shwr.me/). Includes [Ribbon](https://github.com/shower/ribbon/) and [Material](https://github.com/shower/material/) themes, and [core](https://github.com/shower/core/) with plugins.\n\nFollow [@shower_me](https://twitter.com/shower_me) for support and updates, [file an issue](https://github.com/shower/shower/issues/new) if you have any.\n\n## Quick Start\n\n1. Download and unzip [template archive](http://shwr.me/shower.zip)\n2. Open `index.html` and start creating your presentation\n\n## Advanced\n\n1. [Fork](https://github.com/shower/shower/fork) this repository\n2. Go to fork setting and rename it: `shower` → `my-slides`\n2. Clone it to your computer: `git clone git@github.com:username/my-slides.git`\n3. Go to `my-slides` folder and install dependencies: `npm install`\n4. Start creating your presentation\n\nOnce you’re done you can build a clean copy of your slides:\n\n\tnpm run prepare\n\nAnd you’ll find your presentation in `prepared` folder with only needed files in it. You can also run `npm run archive` to get the same files in `archive.zip`. But there’s more! You can easily publish your presentation online by running:\n\n\tnpm run publish\n\nAnd you’ll have your slides published on `http://username.github.io/my-slides/`.\n\n## Usage Examples\n\n- [Installable Web Apps](http://pepelsbey.net/pres/web-apps/)\n- [Clear and Sharp](http://pepelsbey.net/pres/clear-and-sharp/)\n- [CSS Management](http://pepelsbey.net/pres/knife-train/)\n- [Push it!](http://pepelsbey.net/pres/push-it/)\n- [Pre-fixes](http://pepelsbey.net/pres/pre-fixes/)\n- [Web In Curves](http://pepelsbey.net/pres/web-in-curves/)\n- [Sense Coding](http://pepelsbey.net/pres/sense-coding/)\n\n## Browser Support\n\nLatest stable versions of Chrome, Internet Explorer, Firefox, Opera and Safari are supported.\n\n## Contributing\n\nYou’re always welcome to contribute. Fork project, make changes and send it as pull request. But it’s better to file an [issue](https://github.com/shower/shower/issues) with your idea first. Read [contributing rules](CONTRIBUTING.md) for more details.\n\nMain contributors in historical order: [pepelsbey](https://github.com/pepelsbey), [jahson](https://github.com/jahson), [miripiruni](https://github.com/miripiruni), [kizu](https://github.com/kizu), [artpolikarpov](https://github.com/artpolikarpov), [tonyganch](https://github.com/tonyganch), [zloylos](https://github.com/zloylos).\n\n---\nLicensed under [MIT License](LICENSE.md).\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'c8c068b2033f527397733d194321bc82c554ea80',
+21 silly publish   _id: 'shower@2.1.4',
+21 silly publish   _shasum: '2132c5835edef31ed24149fc2eb177f3b542261a',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name shower
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'shower',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'shower',
+26 silly mapToRegistry   name: 'shower',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/shower
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/kos/.npm/shower/2.1.4/package.tgz
+30 verbose request uri https://registry.npmjs.org/shower
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 3:47:04 PM
+33 verbose request using bearer token for auth
+34 verbose request id 06a1f75c39ce9deb
+35 http request PUT https://registry.npmjs.org/shower
+36 http 403 https://registry.npmjs.org/shower
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '100',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Sun, 28 Aug 2016 12:47:05 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-fra1242-FRA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1472388424.464609,VS0,VE1171',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/kos/.npm/registry.npmjs.org/shower on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: you do not have permission to publish "shower". Are you logged in as the correct user? : shower
+40 verbose stack     at makeError (/Users/kos/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/Users/kos/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/Users/kos/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/Users/kos/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/request/request.js:200:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/Users/kos/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+40 verbose stack     at emitOne (events.js:101:20)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/Users/kos/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/request/request.js:988:12)
+41 verbose statusCode 403
+42 verbose pkgid shower
+43 verbose cwd /Volumes/Repos/Coding/lectures/express-routes
+44 error Darwin 15.6.0
+45 error argv "/Users/kos/.nvm/versions/node/v6.3.1/bin/node" "/Users/kos/.nvm/versions/node/v6.3.1/bin/npm" "publish"
+46 error node v6.3.1
+47 error npm  v3.10.3
+48 error code E403
+49 error you do not have permission to publish "shower". Are you logged in as the correct user? : shower
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

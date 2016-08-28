@@ -142,7 +142,7 @@
 	const middleware = function (req, res, next) {
 		/* ... */
 		// next(new Error('Error !'))
-		next() // <-- обязательно вызвать !
+		<mark>next()</mark> // <-- обязательно вызвать !
 	}
 	const controller = function (req, res) { /* ... */ }
 	app.get(address, middleware, controller)
@@ -290,7 +290,7 @@
 		just remove “progress” element.
 		-->
 	<div class="progress"></div>
-	<script src="node_modules/shower-core/shower.min.js"></script>
+	<script src="shower/shower.min.js"></script>
 	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
 	<!-- Photos by John Carey, fiftyfootshadows.net -->
 </body>
